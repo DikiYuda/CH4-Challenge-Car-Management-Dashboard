@@ -1,4 +1,4 @@
-<%- include('./layouts/header') -%>
+<%- include('layouts/header.ejs') %>
     <section class="side__nav">
         <div class="d-flex flex-row">
             <div class="side__bar">
@@ -95,7 +95,7 @@
                                 </h5>
                             </div>
 
-                            <form action="" method="post" enctype="">
+                            <form action="/cars/update/<%= car.id %>" method="POST" enctype="">
                                 <div class="bg__white mt-2">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -104,7 +104,7 @@
                                                     <p>Nama<i style="color: #FA2C5A;">*</i></p>
                                                 </div>
                                                 <div class="col-lg-8">
-                                                    <input name="name" type="text" class="form-control" value="" id="exampleFormControlInput1" placeholder="Avanza">
+                                                    <input name="name" type="text" class="form-control" value="<%- car.name %>" id="exampleFormControlInput1" placeholder="Avanza">
                                                 </div>
                                             </div>
                                             <div class="row align-items-center mt-3">
@@ -112,7 +112,7 @@
                                                     <p>Sewa Per Hari<i style="color: #FA2C5A;">*</i></p>
                                                 </div>
                                                 <div class="col-lg-8">
-                                                    <input name="price" type="number" class="form-control" id="exampleFormControlInput1" value="" placeholder="Rp 0,-">
+                                                    <input name="price" type="number" class="form-control" id="exampleFormControlInput1" value="<%- car.name %>" placeholder="Rp 0,-">
                                                 </div>
                                             </div>
                                             <div class="row align-items-center mt-3">
@@ -120,8 +120,10 @@
                                                     <p>Ukuran<i style="color: #FA2C5A;">*</i></p>
                                                 </div>
                                                 <div class="col-lg-8">
-                                                    <select name="category" class="form-select" aria-label="Default select example">
-                                                        
+                                                    <select name="category" class="form-select" aria-label="Default select example" required>
+                                                        <option value="small" selected>Small</option>
+                                                        <option value="medium">Medium</option>
+                                                        <option value="large">Large</option>
                                                       </select>
                                                 </div>
                                             </div>
@@ -130,7 +132,7 @@
                                                     <p>Foto<i style="color: #FA2C5A;">*</i></p>
                                                 </div>
                                                 <div class="col-lg-8">
-                                                    <input name="image" class="form-control" type="file" id="formFile" value="">
+                                                    <input name="image" class="form-control" type="file" id="formFile" value=" <%- car.image %>">
                                                     <small>File size max. 2MB</small>
                                                 </div>
                                             </div>
@@ -140,7 +142,7 @@
 
                                 <div class="d-flex button__down">
                                     <button class="btn button__secondary me-3">Cancel</button>
-                                    <button class="btn button__primary me-3">Save</button>
+                                    <button type="submit" class="btn button__primary me-3">Save</button>
                                 </div>
                             </form>
                         </div>
@@ -150,7 +152,4 @@
         </div>
     </section>
 
-
-
-
-    <%- include('./layouts/script') -%>
+    <%- include('./layouts/script') %>
