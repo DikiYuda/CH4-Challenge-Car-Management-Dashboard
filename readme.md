@@ -2,19 +2,31 @@
 
 Car Management Dashboard is an application used to manage car data. This application can display a list of cars, add, edit, and delete existing car data.
 
-## How to Run
+## Installation
 
-1. Git Clone
-2. NPM install
-3. Create .env file, copy the env variable from .env.example file
-4. NPM Run Dev
+First you need to have [MongoDB](https://www.mongodb.com/try/download/compass) installed on your computer. Then, please follow these steps below in order to run this application :
 
-Now you can run the application on your device.
+1. On your terminal :
+
+```
+git clone
+npm install
+npm install dotenv
+```
+
+2. Create .env file, copy the env variable from .env.example file
+3. Start the project with this command :
+
+```
+npm run dev
+```
+
+Now you can run the application on your device. Server should be running at <http://localhost:your-port> while database should be at <http://127.0.0.1/your-connection-string>
 
 ### Database Table Diagram
 
 This application using MongoDB as the database. Here's the diagram :
-![table](public/images/db%20diagram.png)
+![table](public/images/db_diagram.png)
 
 #### List of API Endpoints
 

@@ -89,7 +89,7 @@
                                     <li class="breadcrumb-item"><a href="#">Cars</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">List Car</li>
                                 </ol>
-                                <div class="alert <%= (message == 'success' ? "alert-success" :"alert-dark") %> <%= message != '' ? "" : "d-none" %>" role="alert">
+                                <div id="alert-message" class="alert <%= (message == 'success' ? "alert-success" :"alert-dark") %> <%= message != '' ? "" : "d-none" %>" role="alert">
                                     Data Berhasil <%= message %>
                                 </div>
                             </nav>
@@ -114,8 +114,7 @@
                                             <img height="222px" src="<%= car.imageUrl %>" class="card-img-top text-center" style="aspect-ratio: 2/1; object-fit: contain;">
                                             <div class="card-body">
                                                 <h5 class="card- title h5__tipe">
-                                                    <%= car.name %>
-                                                </h5>
+                                                    <%= car.name %> / <%= car.category %> 
                                                 <h5 class="card-title h5__hari"><%= car.price %>/hari</h5>
                                                 <div class="row mt-3">
                                                     <p class="p__date"><img src="images/fi_clock.png" height="18px" class="pe-1" alt=""> Updated at
@@ -163,5 +162,10 @@
                 trigger.href = `/delete/${id}`
             })
         })
+    
+        setTimeout(()=>{
+        var alertMessage=document.getElementById('alert-message')
+        alertMessage.style.display='none';
+        },3000)
     </script>
     <%- include('./layouts/script') -%>
