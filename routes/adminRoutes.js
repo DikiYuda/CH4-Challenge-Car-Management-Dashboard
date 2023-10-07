@@ -1,7 +1,8 @@
 const express = require("express")
 const adminController = require("../controllers/adminController")
-
 const router = express.Router()
+
+const upload = require("../middlewares/upload")
 
 router
   .route("/dashboard")
@@ -18,7 +19,10 @@ router
 // api function for action
 router
   .route("/cars/add")
-  .post(adminController.createCar)
+  .post(
+    upload.single("image"),
+    adminController.createCar
+  )
 
 router
   .route("/cars/delete/:id")
@@ -26,6 +30,9 @@ router
 
 router
   .route("/cars/update/:id")
-  .post(adminController.editCar)
+  .post(
+    upload.single("image"),
+    adminController.editCar
+  )
 
 module.exports = router

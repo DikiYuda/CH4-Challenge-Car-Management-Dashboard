@@ -1,3 +1,4 @@
+const { text } = require("body-parser")
 const mongoose = require("mongoose")
 const multer = require("multer")
 
@@ -13,8 +14,10 @@ const carsSchema = new mongoose.Schema(
     category: {
       type: String,
     },
-    image: {
+    imageUrl: {
       type: String,
+      defaultValue:
+        "https://tse2.mm.bing.net/th?id=OIP.U2iQ7wNK6ZzTW_traW_-PQHaHa&pid=Api&P=0&h=180",
     },
   },
   {
